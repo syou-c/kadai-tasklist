@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Task;    // 追加
+
 class TasksController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class TasksController extends Controller
     {
      // メッセージ一覧を取得
  
-     $Task = Message::all();
+     $Task = Task::all();
 
         // メッセージ一覧ビューでそれを表示
         return view('Task.index', [
@@ -25,12 +27,12 @@ class TasksController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * getでmessages/createにアクセスされた場合の「新規登録画面表示処理」
+     * getにアクセスされた場合の「新規登録画面表示処理」
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-     $Task = new Message;
+     $Task = new Task;
 
         // メッセージ作成ビューを表示
         return view('Task.create', [
@@ -40,7 +42,7 @@ class TasksController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * postでmessages/にアクセスされた場合の「新規登録処理」
+     * postにアクセスされた場合の「新規登録処理」
 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -49,7 +51,7 @@ class TasksController extends Controller
     {
           
                   // メッセージを作成
-        $Task = new Message;
+        $Task = new Task;
         $Task->content = $request->content;
         $Task->save();
 
@@ -60,14 +62,14 @@ class TasksController extends Controller
 
     /**
      * Display the specified resource.
-     * getでmessages/（任意のid）にアクセスされた場合の「取得表示処理」
+     * get（任意のid）にアクセスされた場合の「取得表示処理」
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         // idの値でメッセージを検索して取得
-        $Task = Message::findOrFail($id);
+        $Task = Task::findOrFail($id);
 
         // メッセージ詳細ビューでそれを表示
         return view('Task.show', [
@@ -77,14 +79,14 @@ class TasksController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * getでmessages/（任意のid）/editにアクセスされた場合の「更新画面表示処理」
+     * get（任意のid）/editにアクセスされた場合の「更新画面表示処理」
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         // idの値でメッセージを検索して取得
-        $Task = Message::findOrFail($id);
+        $Task = Task::findOrFail($id);
 
         // メッセージ編集ビューでそれを表示
         return view('Task.edit', [
@@ -94,7 +96,7 @@ class TasksController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *putまたはpatchでmessages/（任意のid）にアクセスされた場合の「更新処理」
+     *putまたはpatch（任意のid）にアクセスされた場合の「更新処理」
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -102,7 +104,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
       // idの値でメッセージを検索して取得
-        $Task = Message::findOrFail($id);
+        $Task = Task::findOrFail($id);
         // メッセージを更新
         $Task->content = $request->content;
         $Task->save();
@@ -113,14 +115,14 @@ class TasksController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *deleteでmessages/（任意のid）にアクセスされた場合の「削除処理」
+     *delete（任意のid）にアクセスされた場合の「削除処理」
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         // idの値でメッセージを検索して取得
-        $Task = Message::findOrFail($id);
+        $Task = Task::findOrFail($id);
         // メッセージを削除
         $Task->delete();
 

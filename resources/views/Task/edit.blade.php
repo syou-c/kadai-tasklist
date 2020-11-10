@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h1>id: {{ $Task>id }} の編集ページ</h1>
+<h1>id: {{ $Task->id }} 編集ページ</h1>
 
     <div class="row">
         <div class="col-6">

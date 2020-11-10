@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>メッセージ一覧</h1>
+    <h1>一覧</h1>
 
     @if (count($Task) > 0)
         <table class="table table-striped">

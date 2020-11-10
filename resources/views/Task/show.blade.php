@@ -10,7 +10,7 @@
             <td>{{ $Task->id }}</td>
         </tr>
         <tr>
-            <th>タイトル</th>
+            <th>ステータス</th>
             <td>{{ $Task->status }}</td>
         </tr>
         <tr>

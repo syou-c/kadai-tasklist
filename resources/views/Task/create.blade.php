@@ -8,7 +8,7 @@
         <div class="col-6">
             {!! Form::model($Task, ['route' => 'Task.store']) !!}
                 <div class="form-group">
-                    {!! Form::label('status', 'テキスト:') !!}
+                    {!! Form::label('status', 'ステータス:') !!}
                     {!! Form::text('status', null, ['class' => 'form-control']) !!}
                 </div>
                 

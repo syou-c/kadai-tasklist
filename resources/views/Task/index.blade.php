@@ -17,6 +17,7 @@
                 <tr>
                     {{-- メッセージ詳細ページへのリンク --}}
                     <td>{!! link_to_route('Task.show', $Task->id, ['Task' => $Task->id]) !!}</td>
+                    <td>{{ $Task->status }}</td>
                     <td>{{ $Task->content }}</td>
                 </tr>
                 @endforeach

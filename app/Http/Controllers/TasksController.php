@@ -48,10 +48,14 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-          
-                  // メッセージを作成
+    {   
+        // バリデーション
+        $request->validate([
+            'status' => 'required|max:255',   // 追加
+        ]);
+         // メッセージを作成
         $Task = new Task;
+        $Task->status = $request->status;    // 追加
         $Task->content = $request->content;
         $Task->save();
 
@@ -103,9 +107,14 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
+         // バリデーション
+        $request->validate([
+            'status' => 'required|max:255',   // 追加
+        ]);
       // idの値でメッセージを検索して取得
         $Task = Task::findOrFail($id);
         // メッセージを更新
+        $Task->status = $request->status;    // 追加
         $Task->content = $request->content;
         $Task->save();
 

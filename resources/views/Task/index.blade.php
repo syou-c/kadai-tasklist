@@ -9,8 +9,8 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>メッセージ</th>
                     <th>ステータス</th>
+                    <th>メッセージ</th>
                 </tr>
             </thead>
             <tbody>
